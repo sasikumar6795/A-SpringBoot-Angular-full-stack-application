@@ -1,0 +1,117 @@
+<nz-layout>
+  <nz-sider nzCollapsible nzWidth="200px">
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item>
+        <span nz-icon nzType="pie-chart"></span>
+        <span>Option 1</span>
+      </li>
+      <li nz-menu-item>
+        <span nz-icon nzType="desktop"></span>
+        <span>Option 2</span>
+      </li>
+      <li nz-submenu nzTitle="User" nzIcon="user">
+        <ul>
+          <li nz-menu-item>Tom</li>
+          <li nz-menu-item>Bill</li>
+          <li nz-menu-item>Alex</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Team" nz-icon="team" >
+        <ul>
+          <li nz-menu-item>Team 1</li>
+          <li nz-menu-item>Team 2</li>
+        </ul>
+      </li>
+      <li nz-menu-item>
+        <span nz-icon nzType="file"></span>
+        <span>File</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header></nz-header>
+    <nz-content>
+      <button nz-button nzType="primary" (click)="openAddStudentForm()" >
+        <span nz-icon nzType="user-add"  nzTheme="outline"></span>
+        Add Student
+      </button>
+    <nz-drawer
+      [nzBodyStyle]="{ overflow: 'auto' }"
+      [nzMaskClosable]="false"
+      [nzWidth]="720"
+      [nzVisible]="openStudentForm"
+      nzTitle="Create"
+      [nzFooter]="footerTpl"
+      (nzOnClose)="closeStudentForm()"
+    >
+      <form nz-form *nzDrawerContent>
+        <div nz-row [nzGutter]="8">
+          <div nz-col nzSpan="12">
+            <nz-form-item>
+              <nz-form-label>Name</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="please enter your email" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-row [nzGutter]="8">
+          <div nz-col nzSpan="12">
+            <nz-form-item>
+              <nz-form-label>Email</nz-form-label>
+              <nz-form-control>
+                <input nz-input placeholder="please enter user name" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-row [nzGutter]="8">
+          <div nz-col nzSpan="12">
+            <nz-form-item>
+              <nz-form-label>Gender</nz-form-label>
+              <nz-form-control>
+                <nz-select nzPlaceHolder="Please select Gender"></nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </form>
+
+      <ng-template #footerTpl>
+        <div style="float: right">
+          <button nz-button style="margin-right: 8px;" (click)="closeStudentForm()">Cancel</button>
+          <button nz-button nzType="primary" (click)="closeStudentForm()">Submit</button>
+        </div>
+      </ng-template>
+    </nz-drawer>
+      <div class="inner-content" *ngIf="!isLoading">
+        <app-spin *ngIf="isLoading" ></app-spin>
+        <nz-table #basicTable nzTitle="Students" [nzPageSize]="50" [nzScroll]="{ y: '240px' }" [nzData]="students">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>GENDER</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.gender}}</td>
+            <td>
+              <a>Action 一 {{data.name}}</a>
+              <nz-divider nzType="vertical"></nz-divider>
+              <a>Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </nz-content>
+    <nz-footer>SasiCodes©2023</nz-footer>
+  </nz-layout>
+</nz-layout>
