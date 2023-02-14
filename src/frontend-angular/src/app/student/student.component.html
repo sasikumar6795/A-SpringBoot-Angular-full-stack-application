@@ -45,13 +45,13 @@
       [nzFooter]="footerTpl"
       (nzOnClose)="closeStudentForm()"
     >
-      <form nz-form *nzDrawerContent>
+      <form nz-form *nzDrawerContent [formGroup]="registrationForm">
         <div nz-row [nzGutter]="8">
           <div nz-col nzSpan="12">
             <nz-form-item>
               <nz-form-label>Name</nz-form-label>
               <nz-form-control>
-                <input nz-input placeholder="please enter your email" />
+                <input nz-input placeholder="please enter your name" formControlName="name" />
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -61,7 +61,7 @@
             <nz-form-item>
               <nz-form-label>Email</nz-form-label>
               <nz-form-control>
-                <input nz-input placeholder="please enter user name" />
+                <input nz-input placeholder="please enter email"  formControlName="email"/>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -71,7 +71,9 @@
             <nz-form-item>
               <nz-form-label>Gender</nz-form-label>
               <nz-form-control>
-                <nz-select nzPlaceHolder="Please select Gender"></nz-select>
+                <nz-select nzPlaceHolder="Please select Gender" formControlName="gender">
+                  <nz-option *ngFor="let gender of genderList" [nzValue]="gender" [nzLabel]="gender" >{{gender}}</nz-option>
+                </nz-select>
               </nz-form-control>
             </nz-form-item>
           </div>

@@ -18,6 +18,7 @@ import {NzSpinModule} from "ng-zorro-antd/spin";
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzDrawerModule,
     NzFormModule,
     NzSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

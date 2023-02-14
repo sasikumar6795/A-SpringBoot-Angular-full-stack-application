@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  backend:
+    image: "sasikumar6795/springboot-angular-fullstack:latest"
+    ports:
+      - "80:8080"
+    restart: "always"
