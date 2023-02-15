@@ -190,7 +190,7 @@
 								</goals>
 								<configuration>
 									<nodeVersion>v10.13.0</nodeVersion>
-									<npmVersion>8.19.2</npmVersion>
+									<npmVersion>3.10.8</npmVersion>
 								</configuration>
 							</execution>
 							<execution>
