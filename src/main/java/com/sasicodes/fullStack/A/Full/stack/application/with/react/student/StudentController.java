@@ -1,5 +1,6 @@
 package com.sasicodes.fullStack.A.Full.stack.application.with.react.student;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addStudents(@RequestBody Student student) {
+    public ResponseEntity<?> addStudents(@Valid @RequestBody Student student) {
         studentService.addStudents(student);
         return new ResponseEntity<>(HttpStatus.OK);
     }
