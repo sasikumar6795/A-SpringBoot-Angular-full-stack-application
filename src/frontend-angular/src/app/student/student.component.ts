@@ -20,7 +20,7 @@ export class StudentComponent implements OnInit, OnDestroy{
   public registerStudent: Student;
   genderList =  ["MALE", "FEMALE", "OTHER"];
 
-  
+
 
   constructor(private studentService:StudentService) {
 
@@ -69,6 +69,6 @@ export class StudentComponent implements OnInit, OnDestroy{
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
-  
+
 
 }
